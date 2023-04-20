@@ -1,10 +1,18 @@
 class Garage {
-  public static void main(String[] workers) {
-    String[] workerNames = { "Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Grace",
-        "Hannah", "Isaac", "Jasmine", "Katie", "Liam", "Mia", "Nathan", "Olivia" };
-    System.out.println("List of Garage Workers:");
-    for (int i = 0; i < workerNames.length; i++) {
-      System.out.println(workerNames[i]);
+  static String[] workerNames = { "Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Grace",
+      "Hannah", "Isaac", "Jasmine", "Katie", "Liam", "Mia", "Nathan", "Olivia" };
+
+  public static void main(String[] methEx) {
+    getWorkerNames();
+    System.out.println("-----------------Main Ended-----------------");
+  }
+
+  public static void getWorkerNames() {
+    System.out.println("---------------------------------------");
+    System.out.println("List of Garage Workers:" + workerNames.length);
+    for (int wo = 0; wo < workerNames.length; wo++) {
+      System.out.println(workerNames[wo]);
     }
+    return;
   }
 }
