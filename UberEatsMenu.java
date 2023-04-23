@@ -41,8 +41,6 @@ class UberEatsMenu {
     if (itemName == "Ramen") {
       System.out.println("Item name: " + itemName);
       price = 200;
-    } else {
-      System.out.println("Item not found: " + itemName);
     }
     System.out.println("searchItem method is ended");
     return price;
