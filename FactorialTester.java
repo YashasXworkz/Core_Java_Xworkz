@@ -1,5 +1,6 @@
 class FactorialTester {
   public static void main(String[] ex) {
-    Factorial.fact(5);
+    Factorial.getfact(5);
+    Factorial.getfact(6);
   }
 }
