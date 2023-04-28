@@ -1,5 +1,5 @@
 class ChaatShop {
-  static String[] chaatNames = { "Pani Puri", "Sev Puri", "Bhel Puri", "Dahi Puri" };
+  static String[] chaatNames = { "Pani Puri", "Sev Puri", "Bhel Puri" };
   static int index;
 
   public static boolean addChaatName(String chaatName) {
@@ -8,8 +8,8 @@ class ChaatShop {
     System.out.println("Type of parameter is string " + chaatName);
     boolean isAdded = false;
     if (chaatNames != null) {
-      if (index < chaatNames.length)
-        chaatNames[index] = chaatName;
+      chaatNames[index] = chaatName;
+      isAdded = true;
       index++;
     }
     System.out.println("addChaatName method ended");
