@@ -17,6 +17,8 @@ class PermutationCombination1 {
   }
 
   public static void main(String[] ex) {
+    System.out.println("Main method started");
     nprAndNcr(6, 4);
+    System.out.println("Main method ended");
   }
 }
