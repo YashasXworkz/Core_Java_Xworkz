@@ -16,10 +16,13 @@ class RestaurantTester {
     Restaurant.addMenuItem("Samosa");
     Restaurant.addMenuItem("Noodles");
     Restaurant.addMenuItem("Fried Rice");
+    Restaurant.addMenuItem(null); // Extra argument to check whether menu item is null
     Restaurant.getMenu();
     boolean verify = Restaurant.updateMenuItem("Biryani", "Veg Biryani");
     System.out.println("Menu item is updated: " + verify);
     Restaurant.getMenu();
+    String isPresent = Restaurant.getMenu("Chaat");
+    System.out.println("Searched menu item is: " + isPresent);
     System.out.println("Main method ended");
   }
 }

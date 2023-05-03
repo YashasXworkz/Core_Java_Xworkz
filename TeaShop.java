@@ -9,10 +9,12 @@ class TeaShop {
     System.out.println("Type of parameter is string: " + teaName);
     boolean isAdded = false;
     if (teaName != null) {
-      teaNames[index++] = teaName;
-      isAdded = true;
-    } else {
-      System.out.println("------Invalid argument------");
+      if (index < teaNames.length) {
+        teaNames[index++] = teaName;
+        isAdded = true;
+      } else {
+        System.out.println("Array is full");
+      }
     }
     System.out.println("addTeaName method ended");
     return isAdded;
@@ -39,5 +41,15 @@ class TeaShop {
     }
     System.out.println("updateTeaName method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getTeaName(String teaName) {
+    for (int i = 0; i < teaNames.length; i++) {
+      if (teaNames[i].equals(teaName)) {
+        return teaNames[i];
+      }
+    }
+    return "Tea name not found";
   }
 }

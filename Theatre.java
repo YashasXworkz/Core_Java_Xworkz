@@ -7,11 +7,11 @@ class Theatre {
     System.out.println("No of parameters: " + 1);
     System.out.println("Type of parameter is string: " + movieName);
     boolean isAdded = false;
-    if (movieName != null) {
+    if (movieName != null && index < movieNames.length) {
       movieNames[index++] = movieName;
       isAdded = true;
     } else {
-      System.out.println("------Invalid argument------");
+      System.out.println("---------Array is full---------");
     }
     System.out.println("addMovieName method ended");
     return isAdded;
@@ -37,5 +37,15 @@ class Theatre {
     }
     System.out.println("updateMovieName method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getMovieNames(String movieName) {
+    for (int i = 0; i < movieNames.length; i++) {
+      if (movieNames[i].equals(movieName)) {
+        return movieNames[i];
+      }
+    }
+    return "Movie name not found";
   }
 }

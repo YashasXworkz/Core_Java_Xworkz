@@ -11,10 +11,13 @@ class TheatreTester {
     Theatre.addMovieName("Ramarjuna");
     Theatre.addMovieName("Pushpa");
     Theatre.addMovieName("Shivaji Surathkal");
+    Theatre.addMovieName("Om"); // Extra argument to check whether the array is full
     Theatre.getMovieNames();
     boolean verify = Theatre.updateMovieName("Pushpa", "Pushpa Part 2");
     System.out.println("Movie name is updated: " + verify);
     Theatre.getMovieNames();
+    String isPresent = Theatre.getMovieNames("Roberrt");
+    System.out.println("Searched movie name is: " + isPresent);
     System.out.println("Main method ended");
   }
 }

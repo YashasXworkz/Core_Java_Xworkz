@@ -9,10 +9,14 @@ class Restaurant {
     System.out.println("Type of parameter is string: " + menuItem);
     boolean isAdded = false;
     if (menuItem != null) {
-      menuItems[index++] = menuItem;
-      isAdded = true;
+      if (index < menuItems.length) {
+        menuItems[index++] = menuItem;
+        isAdded = true;
+      } else {
+        System.out.println("---------Array is full---------");
+      }
     } else {
-      System.out.println("------Invalid argument------");
+      System.out.println("---------Invalid Argument: Null---------");
     }
     System.out.println("addMenuItem method ended");
     return isAdded;
@@ -38,5 +42,16 @@ class Restaurant {
     }
     System.out.println("updateMenuItem method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getMenu(String menuItem) {
+    System.out.println("getMenu method started");
+    for (int i = 0; i < menuItems.length; i++) {
+      if (menuItems[i].equals(menuItem)) {
+        return menuItems[i];
+      }
+    }
+    return "Menu not found";
   }
 }

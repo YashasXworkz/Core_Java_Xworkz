@@ -9,11 +9,11 @@ class LibraryBook {
     System.out.println("No of parameters: " + 1);
     System.out.println("Type of parameter is string: " + bookName);
     boolean isAdded = false;
-    if (bookName != null) {
+    if (bookName != null && index < bookNames.length) {
       bookNames[index++] = bookName;
       isAdded = true;
     } else {
-      System.out.println("------Invalid argument------");
+      System.out.println("---------Array is full---------");
     }
     System.out.println("addBookName method ended");
     return isAdded;
@@ -40,5 +40,15 @@ class LibraryBook {
     }
     System.out.println("updateBookName method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getbookName(String bookName) {
+    for (int i = 0; i < bookNames.length; i++) {
+      if (bookNames[i].equals(bookName)) {
+        return bookNames[i];
+      }
+    }
+    return "Book name not found";
   }
 }

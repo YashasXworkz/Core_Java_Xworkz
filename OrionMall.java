@@ -9,11 +9,11 @@ class OrionMall {
     System.out.println("No of parameters: " + 1);
     System.out.println("Type of parameter is string: " + shopName);
     boolean isAdded = false;
-    if (shopName != null) {
+    if (shopName != null && index < shopNames.length) {
       shopNames[index++] = shopName;
       isAdded = true;
     } else {
-      System.out.println("------Invalid argument------");
+      System.out.println("---------Array is full---------");
     }
     System.out.println("addShopName method ended");
     return isAdded;
@@ -40,5 +40,16 @@ class OrionMall {
     }
     System.out.println("updateShopName method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getShopName(String shopName) {
+    System.out.println("getShopName method started");
+    for (int i = 0;i<shopNames.length;i++) {
+      if (shopNames[i].equals(shopName)) {
+        return shopNames[i];
+      }
+    }
+    return "Shop name not found";
   }
 }

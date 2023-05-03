@@ -11,10 +11,14 @@ class MobileShopTester {
     MobileShop.addMobileNumber(1234567890L);
     MobileShop.addMobileNumber(7777777777L);
     MobileShop.addMobileNumber(6666666666L);
+    MobileShop.addMobileNumber(8989898989L); // Extra argument to check whether the array is full
+    MobileShop.addMobileNumber(0); // Extra argument to check whether mobile number is null
     MobileShop.getMobileNumber();
     boolean verify = MobileShop.updateMobileNumber(1234567890L, 9876543210L);
     System.out.println("Mobile number is updated: " + verify);
     MobileShop.getMobileNumber();
+    String isPresent = MobileShop.getMobileNumber(2222222222L); // Checks mobile number exists
+    System.out.println("Searched mobile number is: " + isPresent);
     System.out.println("Main method ended");
   }
 }

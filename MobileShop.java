@@ -9,10 +9,14 @@ class MobileShop {
     System.out.println("Type of parameter is long: " + mobileNumber);
     boolean isAdded = false;
     if (mobileNumber != 0) {
-      mobileNumbers[index++] = mobileNumber;
-      isAdded = true;
+      if (index < mobileNumbers.length) {
+        mobileNumbers[index++] = mobileNumber;
+        isAdded = true;
+      } else {
+        System.out.println("---------Array is full---------");
+      }
     } else {
-      System.out.println("------Invalid argument------");
+      System.out.println("--------Invalid Argument: Null--------");
     }
     System.out.println("addMobileNumber method ended");
     return isAdded;
@@ -39,5 +43,16 @@ class MobileShop {
     }
     System.out.println("updateMobileNumber method ended");
     return isUpdated;
+  }
+
+  // searching
+  public static String getMobileNumber(long mobileNumber) {
+    System.out.println("getMobileNumber method started");
+    for (int i = 0; i < mobileNumbers.length; i++) {
+      if (mobileNumbers[i] == mobileNumber) {
+        return Long.toString(mobileNumbers[i]);
+      }
+    }
+    return "Mobile number not found";
   }
 }

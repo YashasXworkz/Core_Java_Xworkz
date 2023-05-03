@@ -16,10 +16,13 @@ class OrionMallTester {
     OrionMall.addShopName("Mango");
     OrionMall.addShopName("Nike");
     OrionMall.addShopName("Oxford");
+    OrionMall.addShopName("Sports Zone"); // Extra argument to check whether array is full
     OrionMall.getShopName();
     boolean verify = OrionMall.updateShopName("Oxford", "Puma");
     System.out.println("Shop name is updated: " + verify);
     OrionMall.getShopName();
+    String isPresent = OrionMall.getShopName("KFC");
+    System.out.println("Searched shop name is: " + isPresent);
     System.out.println("Main method ended");
   }
 }
