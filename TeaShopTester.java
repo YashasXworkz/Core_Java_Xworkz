@@ -1,7 +1,8 @@
 class TeaShopTester {
+  static String[] teas = { "Green Tea", "White Tea", "Herbal Tea", "Black Tea", "Yellow Tea", "Masala Tea" };
+
   public static void main(String[] shop) {
     System.out.println("Main method started");
-    TeaShop.getTeaName();
     TeaShop.addTeaName("Green Tea");
     TeaShop.addTeaName("White Tea");
     TeaShop.addTeaName("Herbal Tea");

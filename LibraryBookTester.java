@@ -21,7 +21,7 @@ class LibraryBookTester {
     boolean verify = LibraryBook.updateBookName("The White Tiger", "Serious Men");
     System.out.println("Book name is updated: " + verify);
     LibraryBook.getBookName();
-    String isPresent = LibraryBook.getbookName("The Guide"); // Checks the book name exists
+    String isPresent = LibraryBook.getBookName("The Guide"); // Checks the book name exists
     System.out.println("Searched book name is: " + isPresent);
     System.out.println("Main method ended");
   }

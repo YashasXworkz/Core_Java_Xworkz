@@ -43,12 +43,14 @@ class LibraryBook {
   }
 
   // searching
-  public static String getbookName(String bookName) {
+  public static String getBookName(String bookName) {
+    System.out.println("getBookName method started");
     for (int i = 0; i < bookNames.length; i++) {
       if (bookNames[i].equals(bookName)) {
         return bookNames[i];
       }
     }
+    System.out.println("getBookName method ended");
     return "Book name not found";
   }
 }

@@ -45,11 +45,12 @@ class OrionMall {
   // searching
   public static String getShopName(String shopName) {
     System.out.println("getShopName method started");
-    for (int i = 0;i<shopNames.length;i++) {
+    for (int i = 0; i < shopNames.length; i++) {
       if (shopNames[i].equals(shopName)) {
         return shopNames[i];
       }
     }
+    System.out.println("getShopName method ended");
     return "Shop name not found";
   }
 }

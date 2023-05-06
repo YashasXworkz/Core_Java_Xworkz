@@ -16,7 +16,7 @@ class TheatreTester {
     boolean verify = Theatre.updateMovieName("Pushpa", "Pushpa Part 2");
     System.out.println("Movie name is updated: " + verify);
     Theatre.getMovieNames();
-    String isPresent = Theatre.getMovieNames("Roberrt");
+    String isPresent = Theatre.getMovieName("Roberrt");
     System.out.println("Searched movie name is: " + isPresent);
     System.out.println("Main method ended");
   }

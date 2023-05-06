@@ -52,6 +52,7 @@ class Restaurant {
         return menuItems[i];
       }
     }
+    System.out.println("getMenu method ended");
     return "Menu not found";
   }
 }

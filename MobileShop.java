@@ -53,6 +53,7 @@ class MobileShop {
         return Long.toString(mobileNumbers[i]);
       }
     }
+    System.out.println("getMobileNumber method ended");
     return "Mobile number not found";
   }
 }

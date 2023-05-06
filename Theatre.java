@@ -40,12 +40,14 @@ class Theatre {
   }
 
   // searching
-  public static String getMovieNames(String movieName) {
+  public static String getMovieName(String movieName) {
+    System.out.println("getMovieName method started");
     for (int i = 0; i < movieNames.length; i++) {
       if (movieNames[i].equals(movieName)) {
         return movieNames[i];
       }
     }
+    System.out.println("getMovieName method ended");
     return "Movie name not found";
   }
 }

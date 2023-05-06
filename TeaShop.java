@@ -13,8 +13,10 @@ class TeaShop {
         teaNames[index++] = teaName;
         isAdded = true;
       } else {
-        System.out.println("Array is full");
+        System.out.println("-------Array is full-------");
       }
+    } else {
+      System.out.println("-------Invalid Argument: Null-------");
     }
     System.out.println("addTeaName method ended");
     return isAdded;
@@ -45,11 +47,13 @@ class TeaShop {
 
   // searching
   public static String getTeaName(String teaName) {
+    System.out.println("getTeaName method started");
     for (int i = 0; i < teaNames.length; i++) {
       if (teaNames[i].equals(teaName)) {
         return teaNames[i];
       }
     }
+    System.out.println("getTeaName method ended");
     return "Tea name not found";
   }
 }
