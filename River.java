@@ -1,4 +1,4 @@
-public class River {
+class River {
   // instance variable
   String name;
   double length;
