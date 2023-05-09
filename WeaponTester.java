@@ -1,5 +1,6 @@
 class WeaponTester {
   public static void main(String[] weapons) {
+    System.out.println("Main method started");
     Weapon weapon1 = new Weapon();
     weapon1.name = "Talwar";
     weapon1.weight = 2.0;
@@ -274,5 +275,6 @@ class WeaponTester {
     System.out.println("Weapon name: " + weapon25.name + "\nWeight: " + weapon25.weight + " Kg" + "\nType: "
         + weapon25.type + "\nMaterial: " + weapon25.material + "\nDamage: " + weapon25.damage + " pts");
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

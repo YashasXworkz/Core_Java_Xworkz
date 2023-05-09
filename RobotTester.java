@@ -1,5 +1,6 @@
 class RobotTester {
   public static void main(String[] robo) {
+    System.out.println("Main method started");
     Robot robot1 = new Robot();
     robot1.name = "Atlas";
     robot1.type = "Humanoid";
@@ -274,5 +275,6 @@ class RobotTester {
     System.out.println("Robot name: " + robot25.name + "\nType: " + robot25.type + "\nYear: " + robot25.year
         + "\nCountry: " + robot25.country + "\nCreator: " + robot25.creator);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

@@ -1,5 +1,6 @@
 class GameTester {
 	public static void main(String[] playGame) {
+		System.out.println("Main method started");
 		Game game1 = new Game();
 		game1.name = "Counter Strike: Global Offensive";
 		game1.year = 2012;
@@ -274,5 +275,6 @@ class GameTester {
 		System.out.println("Name: " + game25.name + "\nYear: " + game25.year + "\nPrice: Rs." + game25.price + "\nCreator: "
 				+ game25.creator + "\nCountry: " + game25.country);
 		System.out.println("---------------------");
+		System.out.println("Main method ended");
 	}
 }

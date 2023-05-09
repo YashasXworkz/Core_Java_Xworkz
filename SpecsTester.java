@@ -1,5 +1,6 @@
 class SpecsTester {
   public static void main(String[] spec) {
+    System.out.println("Main method started");
     Specs specs1 = new Specs();
     specs1.frameColor = "Black";
     specs1.brandName = "Ray-Ban";
@@ -249,5 +250,6 @@ class SpecsTester {
     System.out.println("Brand name: " + specs25.brandName + "\nFrame colour: " + specs25.frameColor + "\nLens colour: "
         + specs25.lens + "\nPrice: Rs." + specs25.price);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

@@ -1,5 +1,6 @@
 class CakeTester {
 	public static void main(String[] bakery) {
+		System.out.println("Main method started");
 		Cake cake1 = new Cake();
 		cake1.shape = "Round";
 		cake1.flavour = "Chocolate";
@@ -299,5 +300,6 @@ class CakeTester {
 		System.out.println("Shape: " + cake25.shape + "\nFlavour: " + cake25.flavour + "\nPrice: Rs." + cake25.price
 				+ "\nDesign: " + cake25.design + "\nWeight: " + cake25.weight + " Kg" + "\nColour: " + cake25.colour);
 		System.out.println("---------------------");
+		System.out.println("Main method ended");
 	}
 }

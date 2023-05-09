@@ -1,5 +1,6 @@
 class PipeTester {
   public static void main(String[] waterPipe) {
+    System.out.println("Main method started");
     Pipe pipe1 = new Pipe();
     pipe1.material = "PVC";
     pipe1.length = 10.5;
@@ -274,5 +275,6 @@ class PipeTester {
     System.out.println("Material: " + pipe25.material + "\nLength: " + pipe25.length + " m" + "\nDiameter: "
         + pipe25.diameter + " cm" + "\nColour: " + pipe25.color + "\nType: " + pipe25.type);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

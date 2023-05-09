@@ -1,5 +1,6 @@
 class TrainTester {
   public static void main(String[] travel) {
+    System.out.println("Main method started");
     Train train1 = new Train();
     train1.name = "Rajdhani Express";
     train1.year = 1969;
@@ -274,5 +275,6 @@ class TrainTester {
     System.out.println("Name: " + train25.name + "\nYear: " + train25.year + "\nColour: " + train25.color + "\nSource: "
         + train25.source + "\nType: " + train25.type);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

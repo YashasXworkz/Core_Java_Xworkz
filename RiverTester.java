@@ -1,5 +1,6 @@
 class RiverTester {
   public static void main(String[] river) {
+    System.out.println("Main method started");
     River river1 = new River();
     river1.name = "Nile";
     river1.length = 6650;
@@ -274,5 +275,6 @@ class RiverTester {
     System.out.println("Name: " + river25.name + "\nLength: " + river25.length + " km" + "\nDepth: " + river25.depth
         + " m" + "\nCountry: " + river25.country + "\nSource: " + river25.source);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

@@ -1,5 +1,6 @@
 class WatchTester {
   public static void main(String[] watches) {
+    System.out.println("Main method started");
     Watch watch1 = new Watch();
     watch1.brandName = "Casio";
     watch1.price = 5000.0;
@@ -249,5 +250,6 @@ class WatchTester {
     System.out.println("Brand: " + watch25.brandName + "\nColour: " + watch25.color + "\nPrice: Rs."
         + watch25.price + "\nType: " + watch25.type);
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }

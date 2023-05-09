@@ -1,5 +1,6 @@
 class UmbrellaTester {
   public static void main(String[] rain) {
+    System.out.println("Main method started");
     Umbrella umbrella1 = new Umbrella();
     umbrella1.brandName = "Parachute";
     umbrella1.color = "Black";
@@ -274,5 +275,6 @@ class UmbrellaTester {
     System.out.println("Brand name: " + umbrella25.brandName + "\nColour: " + umbrella25.color + "\nHandle type: " +
         umbrella25.handleType + "\nPrice: Rs." + umbrella25.price + "\nWeight: " + umbrella25.weight + " Kg");
     System.out.println("---------------------");
+    System.out.println("Main method ended");
   }
 }
