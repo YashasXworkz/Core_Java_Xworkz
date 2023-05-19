@@ -1,26 +1,12 @@
 package com.xworkz.footwareshop;
 
 public class FootWareShop {
-  
   private int footID;  //1
   private String brandName;  //Woodland
   private int size;  //8
   private String type;  //Boots
   private double price;  //3999.50
   private String materialType;  //Leather
-  
-  
-  public FootWareShop() {
-  }
-  
-  public FootWareShop(int footID, String brandName, int size, String type, double price, String materialType) {
-    this.footID = footID;
-    this.brandName = brandName;
-    this.size = size;
-    this.type = type;
-    this.price = price;
-    this.materialType = materialType;
-  }
   
   public int getFootID() {
     return footID;

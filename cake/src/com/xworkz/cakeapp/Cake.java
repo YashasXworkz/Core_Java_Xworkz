@@ -1,23 +1,11 @@
 package com.xworkz.cakeapp;
 
 public class Cake {
-  
   private int cakeId;  //1
   private String color;  //White
   private String shape;  //Round
   private String flavor;  //Vanilla
   private double price;  //699.99
-  
-  public Cake() {
-  }
-  
-  public Cake(int cakeId, String color, String shape, String flavor, double price) {
-    this.cakeId = cakeId;
-    this.color = color;
-    this.shape = shape;
-    this.flavor = flavor;
-    this.price = price;
-  }
   
   public int getCakeId() {
     return cakeId;

@@ -18,7 +18,7 @@ public class CountryTester {
     System.out.println("Enter number of states:");
     int noOfStates = sc.nextInt();  //28
     
-    System.out.println("Enter total population:");
+    System.out.println("Enter total no of population:");
     long population = sc.nextInt();  //1400000000
     
     System.out.println("Enter country currency (INR / EURO...):");

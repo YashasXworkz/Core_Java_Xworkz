@@ -1,7 +1,6 @@
 package com.xworkz.countrydetailsapp;
 
 public class Country {
-  
   private int countryId;  //1
   private int countryCode;  //91
   private String countryName;  //India
@@ -10,20 +9,6 @@ public class Country {
   private String currency;  //INR
   private String capital;  //NewDelhi
   private String economy;  //Developing
-  
-  public Country() {
-  }
-  
-  public Country(int countryId, int countryCode, String countryName, int noOfStates, long population, String currency, String capital, String economy) {
-    this.countryId = countryId;
-    this.countryCode = countryCode;
-    this.countryName = countryName;
-    this.noOfStates = noOfStates;
-    this.population = population;
-    this.currency = currency;
-    this.capital = capital;
-    this.economy = economy;
-  }
   
   public int getCountryId() {
     return countryId;
