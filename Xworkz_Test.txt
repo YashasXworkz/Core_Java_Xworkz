@@ -1,0 +1,198 @@
+1. Explain java and javac?
+java - java is an object-oriented programming (oop) language, which means it revolves around the concept of objects and classes. it allows developers to create reusable code through encapsulation, inheritance, and polymorphism.
+
+javac - java is platform-independent this is possible because the java compiler is complied to platform-independent byte-code. where byte-code is excuted using java virtual machine (JVM).
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+2. Explain JDK, JRE and JVM.
+jdk - java development kit
+is a software development kit that contains everything you need to develop java applications. it includes a compiler, a debugger, and a variety of other tools that you can use to write, compile, and debug java code.
+
+jre - java runtime environment
+is a software environment that provides the necessary libraries and infrastructure to run java applications. it includes the jvm, as well as a variety of other libraries and tools that are needed to run java programs.
+
+jvm - java virtual machine
+is a software program that interprets and executes java bytecode. it is responsible for converting java bytecode into machine code that can be executed by the operating system.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+3. List the limitations of array.
+- Array elements cannot be modified directly.
+- When we set the size of the array we can modified.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+4. Explain class, object and signature of the class.
+class - a class is blueprint or template. that defines the structure and behaviour of the object.
+object - a object is instance of a class. representing entities. the properties and behaviours.
+signature of the class - 
+public class className {
+// Class body - variable, methods, constructors etc...
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+5. Difference between .java file and .class file.
+.java								
+it is soucre code					
+it is written by user					
+the code will be english language
+
+.class
+it is byte code (converted from soucre code)
+it is written by java compiler (javac)
+the code will be english language but the interpreter will byte code to machine code when the operating system can understand.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+6. Explain the method signature.
+access_modifier return_type method_name(parameters) {
+    // Method body - statements
+}
+
+access_modifier -
+determines the visibility and accessibility of the method.
+like public, private, protected or no modifier.
+public - accessed by any class, whether it's in the same package or different package.
+private - cannot be accessed by other classes, even if they are in the same package.
+protected - cannot be accessible to classes in different packages that are not subclasses.
+default - accessed by classes within the same package but not by classes in other packages.
+
+return_type -
+specifies the data type of the value returned by the method.
+use void if the method does not return any value.
+for other data types, specify the appropriate type like int, double String etc.
+
+method_name -
+a unique identifier that is used to call the method.
+
+parameter -
+parameter are enclosed in parenthesis and separted by commas.
+each parameter has a data type and a name.
+
+method body -
+the block of code enclosed within curly braces { }.
+contains the statements that define the actions or operations performed by the method.
+public int calculateSum(int num1, int num2) {
+    int sum = num1 + num2;
+    return sum;
+}
+int result = calculateSum(5, 3);
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+7. What is Java?
+java is an object-oriented programming (oop) language, which means it revolves around the concept of objects and classes. it allows developers to create reusable code through encapsulation, inheritance, and polymorphism.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+8. List the Java IDE's?
+- intellj idea
+- eclipse
+- vs code
+- command line prompt (cmd)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+9. What is variables? Explain the types.
+variables - it is container for storing data
+
+Types of variables
+- local variables -
+variables decalared inside the methods, constructor or block
+public void methodName() {
+	int localVar = 10;
+}
+
+- instance variables - 
+variables declared inside the class but outside the method, constructor
+public class className {
+	int instanceVar = 10;
+}
+
+- static variables -
+variables declared inside the class with the keyword 'static'
+public class className {
+	static int staticVar = 10;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+10. List Java keywords.
+- there are 53 keywords in java
+like import, while, continue, for, if, else, elsif, break, all primitive datatypes int, double, float, boolean, char, short,  byte, long etc...
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+11. What is a class variable.
+- class level variables are static and instance variables.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+12. What is datatype and Explain its types?
+- datatype - datatypes are the type of data which we want to store in variable
+ex: int age = 10;
+so int is datatype which store numeric values
+ex: String name = "xworkz";
+so String is datatype which store charaters, alphabets values.
+
+there are two types in datatype
+- primitive datatype
+- int, double, float, long, short, byte, boolen, char
+- these are built-in datatypes
+- these datatypes have fixed range and don't have additional or special methods.
+
+- non-primitive datatype or reference type
+- String, class, arrays, interface etc
+- these are user-defined datatypes.
+- these datatypes have additional or special methods like .equals(), toString(), hashcode.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+13. What is dot operator?
+- dot operator is built-in operator. which is used to perform some actions or tasks.
+ex: we use this in conditional statements to check between two String.
+String name1 = "virat";
+String name2 = "virat";
+name1.equals(name2) == true
+
+ex: we use this in constructor like
+public constructor(int age, String name) {
+this.age = age;
+this.name = name;
+}
+
+ex: we use this calling constructor reference like
+ClassName ref = new ClassName();
+ref.constructor(55,"Virat); // for above example.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+14. List the java features.
+- simple
+- object-oriented
+- platform-independent
+- secure
+- robust
+- protable
+- high-performance
+- dynamic
+- multi-threaded
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+15. What is the base class of all the classes?
+- base class is main class.
+- entry point of java program.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+16. What is method overloading with example?
+method overloading allows the declaration of multiple methods with the same name but different parameters.
+the methods must have different parameter types, parameter length.
+public class Calc {
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+    public int add(int num1, int num2, int num3) {
+        return num1 + num2 + num3;
+    }
+}
+
+public class CalcTester {
+    public static void main(String[] calculator) {
+        Calc calc = new Calc();
+        int result1 = calc.add(5, 3);
+        sop(result1); 
+        int result2 = calc.add(1, 2, 3);
+        sop(result2);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
