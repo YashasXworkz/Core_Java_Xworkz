@@ -10,11 +10,11 @@ public class Parent {
      this.i = i;
      System.out.println("Parent Object is created");
    }
-  
-  //public Parent() {
-  //  System.out.println("Parent Object is created");
-  //}
-  
+/*
+  public Parent() {
+    System.out.println("Parent Object is created");
+  }
+  */
   public double business() {
     System.out.println("Parent business");
     return 100.0;

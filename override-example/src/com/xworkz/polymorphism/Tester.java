@@ -8,6 +8,7 @@ public class Tester {
     //Parent parent = new Child();
     Child child = new Child();
     double profit = child.business();
+    //double profit = parent.business();
     System.out.println("Profit: " + profit);
   }
 }
