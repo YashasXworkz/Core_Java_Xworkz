@@ -77,7 +77,7 @@ public class HospitalTester {
     patient5.setPatientName("Sofia");
     patient5.setAge(56);
     patient5.setGender(Gender.TRANSGENDER);
-    patient5.setPatientName("Dengue-II");
+    patient5.setDiseaseName("Dengue-II");
     patient5.setPhoneNumber(6545678906L);
     patient5.setBloodGroup(BloodGroup.A_POSITIVE);
     patient5.setAddress("Shantinagar");
