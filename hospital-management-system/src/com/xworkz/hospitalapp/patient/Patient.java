@@ -12,6 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class Patient {
+  private int patientId;
   private String patientName;
   public Gender gender;
   private int age;
