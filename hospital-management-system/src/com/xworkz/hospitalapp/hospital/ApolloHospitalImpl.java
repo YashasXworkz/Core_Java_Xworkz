@@ -80,7 +80,7 @@ public class ApolloHospitalImpl implements Hospital {
       for (int i = 0; i < this.patient.length; i++) {
         if (this.patient[i].getDiseaseName().equals(diseaseName)) {
           StringBuilder patientName = new StringBuilder();
-          patientName.append(this.patient[i].getPatientName());
+          patientName = patientName.append(this.patient[i].getPatientName());
           System.out.println(patientName);
           System.out.println("____________________________________________________________");
         }
