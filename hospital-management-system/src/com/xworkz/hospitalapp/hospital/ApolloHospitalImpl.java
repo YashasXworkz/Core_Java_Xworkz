@@ -1,5 +1,6 @@
 package com.xworkz.hospitalapp.hospital;
 
+import com.xworkz.hospitalapp.location.*;
 import com.xworkz.hospitalapp.patient.Patient;
 import com.xworkz.hospitalapp.wardnumber.WardNumber;
 
@@ -19,8 +20,7 @@ public class ApolloHospitalImpl implements Hospital {
       System.out.println("Patient check is Completed... Proceed to add the patient");
       //patient != null                  && patient != ""
       if (patient.getPatientName() != null && !patient.getPatientName().isEmpty()) {
-        this.patient[index] = patient;
-        index++;
+        this.patient[index++] = patient;
         isAdded = true;
         System.out.println("Patient data added successfully");
       } else {
@@ -44,51 +44,50 @@ public class ApolloHospitalImpl implements Hospital {
   @Override
   public Patient getPatientByAddress(String address) {
     System.out.println("Invoked getPatientByAddress method");
+    Patient pat = null;
     if (address != null && !address.isEmpty()) {
-      for (int i = 0; i < this.patient.length; i++) {
-        if (this.patient[i].getAddress().equals(address)) {
-          System.out.println("Patient details: " + this.patient[i]);
-          System.out.println("____________________________________________________________");
+      for (Patient p : this.patient) {
+        if (p.getPatientAddress().equals(address)) {
+          pat = p;
         }
       }
     } else {
       System.out.println("Invalid address");
     }
-    return null;
+    return pat;
   }
   
   @Override
   public String getPatientNameByWardNo(String wardNo) {
     System.out.println("Invoked getPatientNameByWardNo method");
+    String wardNum = null;
     if (wardNo != null && !wardNo.isEmpty()) {
-      for (int i = 0; i < this.patient.length; i++) {
-        if (this.patient[i].getWardNumber().toString().equals(wardNo)) {
-          System.out.println("Patient name: " + this.patient[i].getPatientName());
-          System.out.println("____________________________________________________________");
+      for (Patient p : this.patient) {
+        if (p.getWardNumber().toString().equals(wardNo)) {
+          wardNum = p.getPatientName();
         }
       }
     } else {
       System.out.println("Invalid ward no");
     }
-    return null;
+    return wardNum;
   }
   
   @Override
   public String[] getPatientNameByDiseaseName(String diseaseName) {
     System.out.println("Invoked getPatientNameByDiseaseName method");
+    String[] patientNames = new String[5];
+    int patientIndex = 0;
     if (diseaseName != null && !diseaseName.isEmpty()) {
-      for (int i = 0; i < this.patient.length; i++) {
-        if (this.patient[i].getDiseaseName().equals(diseaseName)) {
-          StringBuilder patientName = new StringBuilder();
-          patientName = patientName.append(this.patient[i].getPatientName());
-          System.out.println(patientName);
-          System.out.println("____________________________________________________________");
+      for (Patient p : this.patient) {
+        if (p.getDiseaseName().equals(diseaseName)) {
+          patientNames[patientIndex++] = p.getPatientName();
         }
       }
     } else {
       System.out.println("Invalid disease name");
     }
-    return null;
+    return patientNames;
   }
   
   @Override
@@ -96,13 +95,12 @@ public class ApolloHospitalImpl implements Hospital {
     System.out.println("Invoked updatePatientDiseaseByPatientName method");
     boolean isUpdated = false;
     if (existingPatientName != null && !existingPatientName.isEmpty() && updatedDiseaseName != null && !updatedDiseaseName.isEmpty()) {
-      for (int i = 0; i < this.patient.length; i++) {
-        if (this.patient[i].getPatientName().equals(existingPatientName)) {
-          this.patient[i].setDiseaseName(updatedDiseaseName);
+      for (Patient p : this.patient) {
+        if (p.getPatientName().equals(existingPatientName)) {
+          p.setDiseaseName(updatedDiseaseName);
           isUpdated = true;
           System.out.println("Patient disease updated successfully");
-          System.out.println(this.patient[i]);
-          System.out.println("____________________________________________________________");
+          System.out.println(p);
         }
       }
     } else {
@@ -114,20 +112,84 @@ public class ApolloHospitalImpl implements Hospital {
   @Override
   public boolean updatePatientWardNoByPatientId(int existingId, String updatedWardNo) {
     System.out.println("Invoked updatePatientWardNoByPatientId method");
-    boolean isUpdated1 = false;
+    boolean isUpdated = false;
     if (existingId != 0 && updatedWardNo != null && !updatedWardNo.isEmpty()) {
-      for (int i = 0; i < this.patient.length; i++) {
-        if (this.patient[i].getPatientId() == existingId) {
-          this.patient[i].setWardNumber(WardNumber.valueOf(updatedWardNo));
-          isUpdated1 = true;
+      for (Patient p : this.patient) {
+        if (p.getPatientId() == existingId) {
+          p.setWardNumber(WardNumber.valueOf(updatedWardNo));
+          isUpdated = true;
           System.out.println("Patient ward number updated successfully");
-          System.out.println(this.patient[i]);
-          System.out.println("____________________________________________________________");
+          System.out.println(p);
         }
       }
     } else {
       System.out.println("Invalid existing id or updated ward no");
     }
-    return isUpdated1;
+    return isUpdated;
+  }
+  
+  @Override
+  public boolean updatePatientAgeByPatientId(int existingPatientId, int patientAge) {
+    System.out.println("Invoked updatePatientAgeByPatientId method");
+    boolean isUpdated = false;
+    if (existingPatientId != 0) {
+      for (Patient p : this.patient) {
+        if (p.getPatientId() == existingPatientId) {
+          p.setAge(patientAge);
+          isUpdated = true;
+          System.out.println("Patient age updated successfully");
+          System.out.println(p);
+        }
+      }
+    } else {
+      System.out.println("Invalid patient ID");
+    }
+    return isUpdated;
+  }
+  
+  @Override
+  public Patient getPatientById(int patientId) {
+    System.out.println("Invoked getPatientById method");
+    Patient pat = null;
+    if (patientId != 0) {
+      for (Patient p : this.patient) {
+        if (p.getPatientId() == patientId) {
+          pat = p;
+        }
+      }
+    } else {
+      System.out.println("Invalid patient ID");
+    }
+    return pat;
+  }
+  
+  
+  @Override
+  public String getPatientAttenderNameByPatientId(int patientId) {
+    System.out.println("Invoked getPatientAttenderNameByPatientId method");
+    String attenderName = null;
+    if (patientId != 0) {
+      for (Patient p : this.patient) {
+        if (p.getPatientId() == patientId) {
+          attenderName = p.getAttenderName();
+        }
+      }
+    } else {
+      System.out.println("Invalid patient ID");
+    }
+    return attenderName;
+  }
+  
+  
+  @Override
+  public String getPatientStreetNameById(int patientId) {
+    System.out.println("Invoked getPatientStreetNameById method");
+    String streetName = null;
+    for (Patient p : this.patient) {
+      if (p.getPatientId() == patientId) {
+        streetName = p.getAddress().getCountry().getState().getCity().getArea().getStreet().getStreetName();
+      }
+    }
+    return streetName;
   }
 }

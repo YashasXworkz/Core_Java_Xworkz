@@ -6,6 +6,7 @@ import com.xworkz.hospitalapp.gender.Gender;
 import com.xworkz.hospitalapp.hospital.ApolloHospitalImpl;
 import com.xworkz.hospitalapp.hospital.Hospital;
 import com.xworkz.hospitalapp.isinsuranceavailable.IsInsuranceAvailable;
+import com.xworkz.hospitalapp.location.*;
 import com.xworkz.hospitalapp.patient.Patient;
 import com.xworkz.hospitalapp.wardnumber.WardNumber;
 
@@ -24,6 +25,7 @@ public class HospitalTester {
     //patient1.setPhoneNumber(9765436789L);
     //patient1.setBloodGroup(BloodGroup.aneg);
     //patient1.setAddress("rrnagar");
+    //patient1.setAttenderName("ravikumar");
     //patient1.setWardNumber(WardNumber.a101);
     //patient1.setDocumentType(DocumentType.dl);
     //patient1.setDocumentNumber("DL-0420110149646");
@@ -40,6 +42,7 @@ public class HospitalTester {
     //patient2.setPhoneNumber(6767987659L);
     //patient2.setBloodGroup(BloodGroup.oneg);
     //patient2.setAddress("bashyamcircle");
+    //patient2.setAttenderName("suresh");
     //patient2.setWardNumber(WardNumber.b101);
     //patient2.setDocumentType(DocumentType.pan);
     //patient2.setDocumentNumber("ABCTY1234D");
@@ -56,6 +59,7 @@ public class HospitalTester {
     //patient3.setPhoneNumber(7965436789L);
     //patient3.setBloodGroup(BloodGroup.abneg);
     //patient3.setAddress("vijayanagar");
+    //patient3.setAttenderName("mahesh");
     //patient3.setWardNumber(WardNumber.c101);
     //patient3.setDocumentType(DocumentType.aadhaar);
     //patient3.setDocumentNumber("4545-5678-3467");
@@ -72,6 +76,7 @@ public class HospitalTester {
     //patient4.setPhoneNumber(8765438954L);
     //patient4.setBloodGroup(BloodGroup.bneg);
     //patient4.setAddress("nagarabhavi");
+    //patient4.setAttenderName("swami");
     //patient4.setWardNumber(WardNumber.c102);
     //patient4.setDocumentType(DocumentType.aadhaar);
     //patient4.setDocumentNumber("5645-8978-2367");
@@ -88,6 +93,7 @@ public class HospitalTester {
     //patient5.setPhoneNumber(6545678906L);
     //patient5.setBloodGroup(BloodGroup.abneg);
     //patient5.setAddress("shantinagar");
+    //patient5.setAttenderName("raghu");
     //patient5.setWardNumber(WardNumber.b102);
     //patient5.setDocumentType(DocumentType.pan);
     //patient5.setDocumentNumber("ABCTY1454D");
@@ -101,7 +107,7 @@ public class HospitalTester {
     System.out.println("Enter the patient size to be added: ");
     int size = scan.nextInt();
     Hospital hospital = new ApolloHospitalImpl(size);
-
+    
     for (int patientIndex = 0; patientIndex < size; patientIndex++) {
       Patient patient = new Patient();
       System.out.println("Enter patient id: ");
@@ -112,38 +118,89 @@ public class HospitalTester {
       patient.setGender(Gender.valueOf(scan.next()));
       System.out.println("Enter patient age: ");
       patient.setAge(scan.nextInt());
-      System.out.println("Enter patient blood group: apos, aneg, bpos, bneg, abpos, abneg, opos, onega");
+      System.out.println("Enter patient blood group: apos, aneg, bpos, bneg, abpos, abneg, opos, oneg");
       patient.setBloodGroup(BloodGroup.valueOf(scan.next()));
       System.out.println("Enter patient disease name: ");
       patient.setDiseaseName(scan.next());
       System.out.println("Enter phone number: ");
       patient.setPhoneNumber(scan.nextLong());
       System.out.println("Enter patient address: ");
-      patient.setAddress(scan.next());
+      patient.setPatientAddress(scan.next());
+      System.out.println("Enter attender name: ");
+      patient.setAttenderName(scan.next());
       System.out.println("Enter ward no: a101, a102, b101, b102, c101, c102");
       patient.setWardNumber(WardNumber.valueOf(scan.next()));
-      System.out.println("Enter patient document type: dl, aadhaar, pan, passport, voterid, rationcard, bplcard, aplcard, employeeid");
+      System.out.println("Enter patient document Type: dl, aadhaar, pan, passport, voterid, rationcard, bplcard, aplcard, employeeid");
       patient.setDocumentType(DocumentType.valueOf(scan.next()));
-      System.out.println("Enter document no: ");
+      System.out.println("Enter document Number: ");
       patient.setDocumentNumber(scan.next());
       System.out.println("Enter insurance available? True/False: ");
       patient.setIsInsuranceAvailable(IsInsuranceAvailable.valueOf(scan.next()));
-      hospital.addPatient(patient);
+      
+      Street street = new Street();
+      System.out.println("Enter street name: ");
+      street.setStreetName(scan.next());
+      
+      Area area = new Area();
+      area.setStreet(street);
+      
+      City city = new City();
+      city.setArea(area);
+      
+      State state = new State();
+      state.setCity(city);
+      
+      Country country = new Country();
+      country.setState(state);
+      
+      Address address = new Address();
+      address.setCountry(country);
+      
+      patient.setAddress(address);
+      
+      boolean addedPatient = hospital.addPatient(patient);
+      System.out.println(addedPatient);
     }
     hospital.getAllPatients();
-    System.out.println("Enter address to find patient details: ");
-    hospital.getPatientByAddress(scan.next());
+    //System.out.println("Enter address to find patient details: ");
+    //Patient patientByAddress = hospital.getPatientByAddress(scan.next());
+    //System.out.println(patientByAddress);
+    //
+    //System.out.println("Enter ward no to find patient name: ");
+    //String patientNameByWardNo = hospital.getPatientNameByWardNo(WardNumber.valueOf(scan.next()).toString());
+    //System.out.println(patientNameByWardNo);
+    //
+    //System.out.println("Enter disease name to find patient names: ");
+    //String[] patientNameByDiseaseName = hospital.getPatientNameByDiseaseName(scan.next());
+    //for (String patientName : patientNameByDiseaseName) {
+    //  if (patientName != null) {
+    //    System.out.println(patientName);
+    //  }
+    //}
+    //
+    //System.out.println("Enter patient name to update disease name & enter new disease name both: ");
+    //boolean updatedPatientDiseaseByPatientName = hospital.updatePatientDiseaseByPatientName(scan.next(), scan.next());
+    //System.out.println(updatedPatientDiseaseByPatientName);
+    //
+    //System.out.println("Enter id to update ward no & enter new ward no: a101, a102, b101, b102, c101, c102");
+    //boolean updatedPatientWardNoByPatientId = hospital.updatePatientWardNoByPatientId(scan.nextInt(), WardNumber.valueOf(scan.next()).toString());
+    //System.out.println(updatedPatientWardNoByPatientId);
+    //
+    //System.out.println("Enter id to update age & enter new patient age: ");
+    //boolean updatedPatientAgeByPatientId = hospital.updatePatientAgeByPatientId(scan.nextInt(), scan.nextInt());
+    //System.out.println(updatedPatientAgeByPatientId);
+    //
+    //System.out.println("Enter id to find patient details: ");
+    //Patient patientById = hospital.getPatientById(scan.nextInt());
+    //System.out.println(patientById);
+    //
+    //System.out.println("Enter id to find attender name: ");
+    //String attenderNameByPatientId = hospital.getPatientAttenderNameByPatientId(scan.nextInt());
+    //System.out.println(attenderNameByPatientId);
     
-    System.out.println("Enter ward no to find patient name: ");
-    hospital.getPatientNameByWardNo(WardNumber.valueOf(scan.next()).toString());
-
-    System.out.println("Enter disease name to find patient names: ");
-    hospital.getPatientNameByDiseaseName(scan.next());
-
-    System.out.println("Enter patient name & new disease name both: ");
-    hospital.updatePatientDiseaseByPatientName(scan.next(), scan.next());
-
-    System.out.println("Enter patient id to update and Enter new ward no: a101, a102, b101, b102, c101, c102");
-    hospital.updatePatientWardNoByPatientId(scan.nextInt(), WardNumber.valueOf(scan.next()).toString());
+    
+    System.out.println("Enter id to find street name: ");
+    String patientStreetNameById = hospital.getPatientStreetNameById(scan.nextInt());
+    System.out.println(patientStreetNameById);
   }
 }

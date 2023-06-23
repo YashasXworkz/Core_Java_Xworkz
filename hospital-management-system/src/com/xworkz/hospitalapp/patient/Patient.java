@@ -4,6 +4,7 @@ import com.xworkz.hospitalapp.bloodgroup.BloodGroup;
 import com.xworkz.hospitalapp.documenttype.DocumentType;
 import com.xworkz.hospitalapp.gender.Gender;
 import com.xworkz.hospitalapp.isinsuranceavailable.IsInsuranceAvailable;
+import com.xworkz.hospitalapp.location.Address;
 import com.xworkz.hospitalapp.wardnumber.WardNumber;
 import lombok.*;
 
@@ -14,14 +15,16 @@ import lombok.*;
 public class Patient {
   private int patientId;
   private String patientName;
-  public Gender gender;
+  private Gender gender;
   private int age;
-  public BloodGroup bloodGroup;
+  private BloodGroup bloodGroup;
   private String diseaseName;
   private long phoneNumber;
-  private String address;
-  public WardNumber wardNumber;
-  public DocumentType documentType;
+  private String patientAddress;
+  private String attenderName;
+  private WardNumber wardNumber;
+  private DocumentType documentType;
   private String documentNumber;
-  public IsInsuranceAvailable isInsuranceAvailable;
+  private IsInsuranceAvailable isInsuranceAvailable;
+  private Address address;
 }
