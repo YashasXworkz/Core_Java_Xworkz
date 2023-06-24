@@ -1,11 +1,10 @@
 package com.xworkz.hospitalapp.patient;
 
-import com.xworkz.hospitalapp.bloodgroup.BloodGroup;
-import com.xworkz.hospitalapp.documenttype.DocumentType;
-import com.xworkz.hospitalapp.gender.Gender;
-import com.xworkz.hospitalapp.isinsuranceavailable.IsInsuranceAvailable;
+import com.xworkz.hospitalapp.enums.BloodGroup;
+import com.xworkz.hospitalapp.enums.DocumentType;
+import com.xworkz.hospitalapp.enums.Gender;
 import com.xworkz.hospitalapp.location.Address;
-import com.xworkz.hospitalapp.wardnumber.WardNumber;
+import com.xworkz.hospitalapp.enums.WardNumber;
 import lombok.*;
 
 @Getter
@@ -25,6 +24,6 @@ public class Patient {
   private WardNumber wardNumber;
   private DocumentType documentType;
   private String documentNumber;
-  private IsInsuranceAvailable isInsuranceAvailable;
+  private boolean isInsuranceAvailable;
   private Address address;
 }
