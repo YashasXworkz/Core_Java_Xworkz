@@ -5,6 +5,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Street {
   private String streetName;
 }
