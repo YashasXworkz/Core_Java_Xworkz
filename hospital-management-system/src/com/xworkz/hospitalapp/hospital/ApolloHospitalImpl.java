@@ -23,7 +23,7 @@ public class ApolloHospitalImpl implements Hospital {
       if (patient.getPatientName() != null && !patient.getPatientName().isEmpty()) {
         this.patient[index++] = patient;
         isAdded = true;
-        System.out.println("Patient data added successfully");
+        System.out.println("Patient data added successfully!");
       } else {
         System.out.println("Patient name is empty...");
       }
@@ -111,7 +111,7 @@ public class ApolloHospitalImpl implements Hospital {
         if (p.getPatientName().equals(existingPatientName)) {
           p.setDiseaseName(updatedDiseaseName);
           isUpdated = true;
-          System.out.println("Patient disease updated successfully");
+          System.out.println("Patient disease updated successfully!");
           System.out.println(p);
         }
       }
@@ -130,12 +130,12 @@ public class ApolloHospitalImpl implements Hospital {
         if (p.getPatientId() == existingPatientId) {
           p.setWardNumber(WardNumber.valueOf(updatedWardNumber));
           isUpdated = true;
-          System.out.println("Patient ward number updated successfully");
+          System.out.println("Patient ward number updated successfully!");
           System.out.println(p);
         }
       }
     } else {
-      System.out.println("Invalid existing ID OR updated ward number");
+      System.out.println("Invalid existing Id OR updated ward number");
     }
     return isUpdated;
   }
@@ -149,12 +149,12 @@ public class ApolloHospitalImpl implements Hospital {
         if (p.getPatientId() == existingPatientId) {
           p.setAge(updatedPatientAge);
           isUpdated = true;
-          System.out.println("Patient age updated successfully");
+          System.out.println("Patient age updated successfully!");
           System.out.println(p);
         }
       }
     } else {
-      System.out.println("Invalid patient ID OR updated patient aga");
+      System.out.println("Invalid patient Id OR updated patient aga");
     }
     return isUpdated;
   }
@@ -170,7 +170,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient ID");
+      System.out.println("Invalid patient Id");
     }
     return pat;
   }
@@ -187,7 +187,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient ID");
+      System.out.println("Invalid patient Id");
     }
     return attenderName;
   }
@@ -204,7 +204,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient ID");
+      System.out.println("Invalid patient Id");
     }
     return streetName;
   }

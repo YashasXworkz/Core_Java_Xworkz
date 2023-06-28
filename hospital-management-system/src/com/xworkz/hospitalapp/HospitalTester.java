@@ -22,7 +22,7 @@ public class HospitalTester {
     Hospital hospital = new ApolloHospitalImpl(size);
     for (int patientIndex = 0; patientIndex < size; patientIndex++) {
       Patient patient = new Patient();
-      System.out.println("Enter patient ID: ");
+      System.out.println("Enter patient Id: ");
       patient.setPatientId(scan.nextInt());
       System.out.println("Enter patient name: ");
       patient.setPatientName(scan.next());
@@ -81,7 +81,7 @@ public class HospitalTester {
     }
     
     do {
-      System.out.println("Enter your choice:\n1. Get all patient details \n2. Get patient details by address \n3. Get patient name by ward number \n4. Get patient names by disease name \n5. Update patient disease name by patient name \n6. Update patient ward number by patient ID \n7. Update patient age by patient ID \n8. Get patient details by patient ID \n9. Get attender name by patient ID \n10. Get street name by patient ID");
+      System.out.println("Enter your choice:\n1. Get all patient details \n2. Get patient details by address \n3. Get patient name by ward number \n4. Get patient names by disease name \n5. Update patient disease name by patient name \n6. Update patient ward number by patient Id \n7. Update patient age by patient Id \n8. Get patient details by patient Id \n9. Get attender name by patient Id \n10. Get street name by patient Id");
       int choice = scan.nextInt();
       switch (choice) {
         case 1:
@@ -118,31 +118,31 @@ public class HospitalTester {
           break;
         
         case 6:
-          System.out.println("Enter patient ID and new ward number: a101, a102, b101, b102, c101, c102");
+          System.out.println("Enter patient Id and new ward number: a101, a102, b101, b102, c101, c102");
           boolean updatedPatientWardNoByPatientId = hospital.updatePatientWardNoByPatientId(scan.nextInt(), scan.next().toUpperCase());
           System.out.println(updatedPatientWardNoByPatientId);
           break;
         
         case 7:
-          System.out.println("Enter patient ID and new age: ");
+          System.out.println("Enter patient Id and new age: ");
           boolean updatedPatientAgeByPatientId = hospital.updatePatientAgeByPatientId(scan.nextInt(), scan.nextInt());
           System.out.println(updatedPatientAgeByPatientId);
           break;
         
         case 8:
-          System.out.println("Enter patient ID to find patient details: ");
+          System.out.println("Enter patient Id to find patient details: ");
           Patient patientById = hospital.getPatientById(scan.nextInt());
           System.out.println(patientById);
           break;
         
         case 9:
-          System.out.println("Enter patient ID to find attender name: ");
+          System.out.println("Enter patient Id to find attender name: ");
           String attenderNameByPatientId = hospital.getPatientAttenderNameByPatientId(scan.nextInt());
           System.out.println("Attender name: " + attenderNameByPatientId);
           break;
         
         case 10:
-          System.out.println("Enter patient ID to find street name: ");
+          System.out.println("Enter patient Id to find street name: ");
           String patientStreetNameById = hospital.getPatientStreetNameById(scan.nextInt());
           System.out.println("Street name: " + patientStreetNameById);
           break;
