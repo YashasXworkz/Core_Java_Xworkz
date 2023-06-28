@@ -135,7 +135,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid existing id OR ward number");
+      System.out.println("Invalid existing ID OR updated ward number");
     }
     return isUpdated;
   }
@@ -144,7 +144,7 @@ public class ApolloHospitalImpl implements Hospital {
   public boolean updatePatientAgeByPatientId(int existingPatientId, int updatedPatientAge) {
     System.out.println("Invoked updatePatientAgeByPatientId method");
     boolean isUpdated = false;
-    if (existingPatientId != 0) {
+    if (existingPatientId != 0 && updatedPatientAge != 0) {
       for (Patient p : this.patient) {
         if (p.getPatientId() == existingPatientId) {
           p.setAge(updatedPatientAge);
@@ -154,7 +154,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient ID");
+      System.out.println("Invalid patient ID OR updated patient aga");
     }
     return isUpdated;
   }
