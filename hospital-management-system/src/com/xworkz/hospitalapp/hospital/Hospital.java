@@ -10,9 +10,8 @@ public interface Hospital {
   String[] getPatientNameByDiseaseName(String diseaseName);
   boolean updatePatientDiseaseByPatientName(String existingPatientName, String updatedDiseaseName);
   boolean updatePatientWardNoByPatientId(int existingId, String updatedWardNo);
-  boolean updatePatientAgeByPatientId(int existingPatientId, int patientAge);
+  boolean updatePatientAgeByPatientId(int existingPatientId, int UpdatedPatientAge);
   Patient getPatientById(int patientId);
   String getPatientAttenderNameByPatientId(int patientId);
   String getPatientStreetNameById(int patientId);
-  //Address - country - state - city - area - street (individual class)
 }
