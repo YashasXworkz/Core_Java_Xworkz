@@ -16,6 +16,12 @@ public class ExceptionHandling {
     }
     
     try {
+      System.out.println(str.length());
+    } catch (NullPointerException npe) {
+      System.out.println("Cannot check the length of null reference 'str'.");
+    }
+    
+    try {
       int x = 100 / 0;
     } catch (ArithmeticException ae) {
       System.out.println("Denominator cannot be zero while integer division");
