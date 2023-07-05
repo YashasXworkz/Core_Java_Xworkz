@@ -1,10 +1,7 @@
 package com.xworkz.hospitalapp.patient;
 
-import com.xworkz.hospitalapp.enums.BloodGroup;
-import com.xworkz.hospitalapp.enums.DocumentType;
-import com.xworkz.hospitalapp.enums.Gender;
+import com.xworkz.hospitalapp.enums.*;
 import com.xworkz.hospitalapp.location.Address;
-import com.xworkz.hospitalapp.enums.WardNumber;
 import lombok.*;
 
 @Getter

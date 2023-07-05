@@ -1,7 +1,10 @@
 package com.xworkz.hospitalapp.hospital;
 
+import com.xworkz.hospitalapp.exceptions.AttenderNotFoundException;
+import com.xworkz.hospitalapp.exceptions.PatientNotFoundException;
+import com.xworkz.hospitalapp.exceptions.WardNoNotFoundException;
 import com.xworkz.hospitalapp.patient.Patient;
-import com.xworkz.hospitalapp.enums.WardNumber;
+import com.xworkz.hospitalapp.enums.*;
 
 import java.util.Arrays;
 
@@ -68,8 +71,11 @@ public class ApolloHospitalImpl implements Hospital {
           patientName = p.getPatientName();
         }
       }
-    } else {
-      System.out.println("Invalid ward number");
+      if (patientName == null) {
+        WardNoNotFoundException exception;
+        exception = new WardNoNotFoundException(wardNumber);
+        throw exception;
+      }
     }
     return patientName;
   }
@@ -98,6 +104,11 @@ public class ApolloHospitalImpl implements Hospital {
         patientNames = Arrays.copyOf(patientNames, patientNames.length + 1);
         patientNames[patientIndex++] = p.getPatientName();
       }
+    }
+    if (patientNames.length == 0) {
+      PatientNotFoundException exception;
+      exception = new PatientNotFoundException(diseaseName);
+      throw exception;
     }
     return patientNames;
   }
@@ -186,8 +197,11 @@ public class ApolloHospitalImpl implements Hospital {
           attenderName = p.getAttenderName();
         }
       }
-    } else {
-      System.out.println("Invalid patient Id");
+    }
+    if (attenderName == null) {
+      AttenderNotFoundException exception;
+      exception = new AttenderNotFoundException(patientId);
+      throw exception;
     }
     return attenderName;
   }
