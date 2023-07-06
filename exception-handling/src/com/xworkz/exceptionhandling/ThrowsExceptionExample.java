@@ -9,6 +9,13 @@ public class ThrowsExceptionExample {
     } catch (NumberFormatException nfe) {
       System.out.println("Catch block executed");
     }*/
+    //FQCN - package name + class name
+    try { //JDBC
+      Class classLoaded = Class.forName("com.xworkz.exceptionhandling.ThrowsExceptionExample");
+      System.out.println(classLoaded);
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
     System.out.println("main method ended");
   }
   
