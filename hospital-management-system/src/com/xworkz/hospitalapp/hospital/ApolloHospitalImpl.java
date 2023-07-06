@@ -1,8 +1,6 @@
 package com.xworkz.hospitalapp.hospital;
 
-import com.xworkz.hospitalapp.exceptions.AttenderNotFoundException;
-import com.xworkz.hospitalapp.exceptions.PatientNotFoundException;
-import com.xworkz.hospitalapp.exceptions.WardNoNotFoundException;
+import com.xworkz.hospitalapp.exceptions.*;
 import com.xworkz.hospitalapp.patient.Patient;
 import com.xworkz.hospitalapp.enums.*;
 
@@ -46,7 +44,7 @@ public class ApolloHospitalImpl implements Hospital {
   }
   
   @Override
-  public Patient getPatientByAddress(String address) {
+  public Patient getPatientByAddress(String address) throws AddressNotFoundException {
     System.out.println("Invoked getPatientByAddress method");
     Patient pat = null;
     if (address != null && !address.isEmpty()) {
@@ -58,11 +56,14 @@ public class ApolloHospitalImpl implements Hospital {
     } else {
       System.out.println("Invalid address");
     }
+    if (pat == null) {
+      throw new AddressNotFoundException(address);
+    }
     return pat;
   }
   
   @Override
-  public String getPatientNameByWardNo(String wardNumber) {
+  public String getPatientNameByWardNo(String wardNumber) throws WardNoNotFoundException {
     System.out.println("Invoked getPatientNameByWardNo method");
     String patientName = null;
     if (wardNumber != null && !wardNumber.isEmpty()) {
@@ -71,11 +72,11 @@ public class ApolloHospitalImpl implements Hospital {
           patientName = p.getPatientName();
         }
       }
-      if (patientName == null) {
-        WardNoNotFoundException exception;
-        exception = new WardNoNotFoundException(wardNumber);
-        throw exception;
-      }
+    } else {
+      System.out.println("Ward number is null OR empty!");
+    }
+    if (patientName == null) {
+      throw new WardNoNotFoundException(wardNumber);
     }
     return patientName;
   }
@@ -99,16 +100,18 @@ public class ApolloHospitalImpl implements Hospital {
     return patientNames;*/
     int patientIndex = 0;
     String[] patientNames = new String[0];
-    for (Patient p : this.patient) {
-      if (p.getDiseaseName().equals(diseaseName)) {
-        patientNames = Arrays.copyOf(patientNames, patientNames.length + 1);
-        patientNames[patientIndex++] = p.getPatientName();
+    if (diseaseName != null && !diseaseName.isEmpty()) {
+      for (Patient p : this.patient) {
+        if (p.getDiseaseName().equals(diseaseName)) {
+          patientNames = Arrays.copyOf(patientNames, patientNames.length + 1);
+          patientNames[patientIndex++] = p.getPatientName();
+        }
       }
+    } else {
+      System.out.println("Disease name is null OR empty");
     }
     if (patientNames.length == 0) {
-      PatientNotFoundException exception;
-      exception = new PatientNotFoundException(diseaseName);
-      throw exception;
+      throw new SameDiseasePatientsNotFoundException(diseaseName);
     }
     return patientNames;
   }
@@ -127,7 +130,7 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient name OR disease name");
+      System.out.println("Invalid patient name OR updated disease name");
     }
     return isUpdated;
   }
@@ -183,6 +186,9 @@ public class ApolloHospitalImpl implements Hospital {
     } else {
       System.out.println("Invalid patient Id");
     }
+    if (pat == null) {
+      throw new PatientNotFoundException(patientId);
+    }
     return pat;
   }
   
@@ -197,11 +203,11 @@ public class ApolloHospitalImpl implements Hospital {
           attenderName = p.getAttenderName();
         }
       }
+    } else {
+      System.out.println("Patient Id is zero");
     }
     if (attenderName == null) {
-      AttenderNotFoundException exception;
-      exception = new AttenderNotFoundException(patientId);
-      throw exception;
+      throw new AttenderNotFoundException(patientId);
     }
     return attenderName;
   }
@@ -218,8 +224,30 @@ public class ApolloHospitalImpl implements Hospital {
         }
       }
     } else {
-      System.out.println("Invalid patient Id");
+      System.out.println("Patient Id is zero");
+    }
+    if (streetName == null) {
+      throw new StreetNotFoundException(patientId);
     }
     return streetName;
+  }
+  
+  @Override
+  public Patient getPatientByGender(String gender) throws GenderNotFoundException {
+    System.out.println("Invoked getPatientByGender method");
+    Patient pat = null;
+    if (gender != null && !gender.isEmpty()) {
+      for (Patient p : this.patient) {
+        if (p.getGender().toString().equals(gender)) {
+          pat = p;
+        }
+      }
+    } else {
+      System.out.println("Gender is null OR empty");
+    }
+    if (pat == null) {
+      throw new GenderNotFoundException(gender);
+    }
+    return pat;
   }
 }

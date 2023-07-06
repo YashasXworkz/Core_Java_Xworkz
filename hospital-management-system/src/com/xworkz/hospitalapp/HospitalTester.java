@@ -1,9 +1,7 @@
 package com.xworkz.hospitalapp;
 
 import com.xworkz.hospitalapp.enums.*;
-import com.xworkz.hospitalapp.exceptions.AttenderNotFoundException;
-import com.xworkz.hospitalapp.exceptions.PatientNotFoundException;
-import com.xworkz.hospitalapp.exceptions.WardNoNotFoundException;
+import com.xworkz.hospitalapp.exceptions.*;
 import com.xworkz.hospitalapp.hospital.ApolloHospitalImpl;
 import com.xworkz.hospitalapp.hospital.Hospital;
 import com.xworkz.hospitalapp.location.*;
@@ -98,7 +96,8 @@ public class HospitalTester {
           7. Update patient age by patient Id
           8. Get patient details by patient Id
           9. Get attender name by patient Id
-          10. Get street name by patient Id""");
+          10. Get street name by patient Id
+          11. Get patient details by gender""");
       
       try {
         int choice = sc.nextInt();
@@ -106,8 +105,12 @@ public class HospitalTester {
           case 1 -> hospital.getAllPatients();
           case 2 -> {
             System.out.println("Enter address to find patient details: ");
-            Patient patientByAddress = hospital.getPatientByAddress(sc.next());
-            System.out.println(patientByAddress);
+            try {
+              Patient patientByAddress = hospital.getPatientByAddress(sc.next());
+              System.out.println(patientByAddress);
+            } catch (AddressNotFoundException anfe) {
+              anfe.printStackTrace();
+            }
           }
           case 3 -> {
             System.out.println("Enter ward number to find patient name: ");
@@ -128,7 +131,7 @@ public class HospitalTester {
                   System.out.println(patientName);
                 }
               }
-            } catch (PatientNotFoundException pnfe) {
+            } catch (SameDiseasePatientsNotFoundException pnfe) {
               pnfe.printStackTrace();
             }
           }
@@ -149,8 +152,12 @@ public class HospitalTester {
           }
           case 8 -> {
             System.out.println("Enter patient Id to find patient details: ");
-            Patient patientById = hospital.getPatientById(sc.nextInt());
-            System.out.println(patientById);
+            try {
+              Patient patientById = hospital.getPatientById(sc.nextInt());
+              System.out.println(patientById);
+            } catch (PatientNotFoundException pnfe) {
+              pnfe.printStackTrace();
+            }
           }
           case 9 -> {
             System.out.println("Enter patient Id to find attender name: ");
@@ -163,8 +170,21 @@ public class HospitalTester {
           }
           case 10 -> {
             System.out.println("Enter patient Id to find street name: ");
-            String patientStreetNameById = hospital.getPatientStreetNameById(sc.nextInt());
-            System.out.println("Street name: " + patientStreetNameById);
+            try {
+              String patientStreetNameById = hospital.getPatientStreetNameById(sc.nextInt());
+              System.out.println("Street name: " + patientStreetNameById);
+            } catch (StreetNotFoundException snfe) {
+              snfe.printStackTrace();
+            }
+          }
+          case 11 -> {
+            System.out.println("Enter gender to find patient: ");
+            try {
+              Patient patientByGender = hospital.getPatientByGender(sc.next().toUpperCase());
+              System.out.println(patientByGender);
+            } catch (GenderNotFoundException gnfe) {
+              gnfe.printStackTrace();
+            }
           }
           default -> System.out.println("Invalid choice!");
         }

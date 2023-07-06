@@ -1,7 +1,7 @@
 package com.xworkz.hospitalapp.exceptions;
 
-public class PatientNotFoundException extends RuntimeException{
-  public PatientNotFoundException(String diseaseName) {
-    System.out.println("No patient for disease: " + diseaseName);
+public class PatientNotFoundException extends RuntimeException {
+  public PatientNotFoundException(int patientId) {
+    System.out.println("No patient found for Id: " + patientId);
   }
 }
