@@ -188,12 +188,14 @@ public class HospitalTester {
           }
           default -> System.out.println("Invalid choice!");
         }
-      } catch (InputMismatchException ime) {
+        
+      } catch (InputMismatchException | IllegalArgumentException e) {
         System.out.println("Invalid input. Existing...");
         break;
       }
       System.out.println("Do you want to continue: y/n");
       text = sc.next();
     } while (text.equals("y"));
+    sc.close();
   }
 }
